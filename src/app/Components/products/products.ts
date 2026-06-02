@@ -5,9 +5,10 @@ import { ICategory } from '../../Models/icategory';
 import { FormsModule } from '@angular/forms';
 import { HighlightCard } from '../../Directives/highlight-card';
 import {StaticProducts} from '../../Services/static-products';
+import { Router, RouterLink, RouterLinkWithHref, RouterOutlet } from "@angular/router";
 @Component({
   selector: 'app-products',
-  imports: [NgFor,FormsModule,HighlightCard],
+  imports: [NgFor, FormsModule, HighlightCard, RouterOutlet, RouterLink],
   templateUrl: './products.html',
   styleUrl: './products.css',
 })
@@ -18,7 +19,7 @@ export class Products implements OnChanges {
   filteredPrd:IProduct[];
   @Input() receivedCat:number=0;
 
-  constructor( private _productService: StaticProducts){
+  constructor( private _productService: StaticProducts, private _router:Router){
     
     this.totalCount=0;
     this.onCountChange=new EventEmitter<number>();
@@ -39,6 +40,8 @@ ngOnChanges() {
 
     }
   }
-  
+  NavigateToDetails(productId:number){
+this._router.navigateByUrl(`/details/${productId}`);
+  }
     }
 

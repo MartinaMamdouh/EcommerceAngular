@@ -1,0 +1,10 @@
+<h1>selected category {{selectedCatId}}</h1>
+<select name="cars" id="cars" [(ngModel)]="selectedCatId">
+    <option selected value="0">All</option>
+    <option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
+   
+  </select>
+
+  <app-products [receivedCat]="selectedCatId" (onCountChange)="BindPrice($event)"></app-products>
+  
+  <h1>total{{totalOrderPrice}}</h1>

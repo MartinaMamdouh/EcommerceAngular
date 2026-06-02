@@ -1,0 +1,17 @@
+
+
+
+
+<div class="row row-cols-md-4 " >
+    
+    <div class="card" *ngFor="let product of filteredPrd" appHighlightCard="white"; hoverColor="pink">
+      <img class="card-img-top" [src]="product.image" alt="Card image cap">
+      <div class="card-body">
+        <h3 class="card-title">Name:{{product.name}}</h3>
+        <h5 class="card-title">Price:{{product.price}}</h5>
+        <input type="number" #countInp>
+        <button (click)="Calculate(product.price,countInp.value)">buy</button>
+      </div>
+    </div>
+   
+  </div>

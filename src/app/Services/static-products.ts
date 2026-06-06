@@ -32,4 +32,8 @@ export class StaticProducts {
     let foundedID= this.products.filter((prd)=>prd.catId==Catid);
     return foundedID
    }
+
+   mapProductsToIds():number[]{
+   return this.products.map((prd)=>prd.id)
+   }
 }

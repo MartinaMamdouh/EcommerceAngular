@@ -1,2 +1,9 @@
 <h3 class="card-title">Name:{{product?.name}}</h3>
 <h5 class="card-title">Price:{{product?.price}}</h5>
+
+<button class="btn btn-primary" (click)="back()">back</button>
+
+<div>
+<button class="btn btn-success" (click)="prev()" [disabled]="productId==arrIDs[0]">prev</button>
+<button class="btn btn-danger" (click)="next()" [disabled]="productId==arrIDs[arrIDs.length-1]">next</button>
+</div>
